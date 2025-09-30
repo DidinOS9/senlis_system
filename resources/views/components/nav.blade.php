@@ -3,13 +3,13 @@
             <img src="{{asset('assets/logos/senlis-logos.svg')}}" alt="logo">
         </a>
         <ul class="flex items-center flex-wrap gap-x-[30px]">
-            <li>
+            {{-- <li>
                 <a href="{{route('front.index')}}" class="hover:font-semibold hover:text-[#6635F1] transition-all duration-300 {{ request()->routeIs('front.index') ? 'font-semibold text-[#6635F1]' : ''}}">Browse</a>
-            </li>
+            </li> --}}
+            @can('apply job')
             <li>
                 <a href="{{route('front.index')}}" class="hover:font-semibold hover:text-[#6635F1] transition-all duration-300">Preprocessing</a>
             </li>
-            @can('apply job')
             <li>
                 <a href="{{route('dashboard.proposals')}}" class="hover:font-semibold hover:text-[#6635F1] transition-all duration-300">My Jobs</a>
             </li>
@@ -18,10 +18,10 @@
             <li>
                 <a href="{{route('dashboard.wallet')}}" class="hover:font-semibold hover:text-[#6635F1] transition-all duration-300">Wallets</a>
             </li>
-            @endcan
             <li>
                 <a href="#" class="hover:font-semibold hover:text-[#6635F1] transition-all duration-300">Help</a>
             </li>
+            @endcan
         </ul>
         @auth()
         <a href="{{route('dashboard')}}">
